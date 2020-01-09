@@ -1,4 +1,7 @@
 // 1154. Day of the Year
+// https://leetcode.com/problems/day-of-the-year/submissions/
+// Runtime: 60 ms, faster than 48.48% of JavaScript online submissions for Day of the Year.
+// Memory Usage: 34 MB, less than 100.00% of JavaScript online submissions for Day of the Year.
 
 const dayOfYear = function (date) {
   let arr = date.split('-');
