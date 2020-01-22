@@ -4,18 +4,29 @@
 
 const numUniqueEmails = function (emails) {
   let output = [];
+  const isPlus = (el) => el === '+';
 
   // for each email
+  emails.forEach(email => {
+    // split by @        
+    let names = email.split('@');
 
-  // split by '@'
+    let firstChars = names[0].split('');
+    firstChars.forEach((char, i) => {
+      // remove all . from first
+      if (char === '.') { firstChars[i] = ''; }
+    });
+    // remove anything after and including +
+    if (firstChars.includes('+')) {
+      firstChars.splice(firstChars.findIndex(isPlus));
+    }
 
-  // remove all '.' from local name
+    // reattatch first to domain
+    let newEmail = firstChars.join('') + '@' + names[1];
+    // compare to storage
+    if (!output.includes(newEmail)) { output.push(newEmail); }
+  });
 
-  // remove anything after and including '+' if exists
-
-  // reattatch local name to domain name
-
-  // compare to storage
 
   // return output.length;
   return output.length;
